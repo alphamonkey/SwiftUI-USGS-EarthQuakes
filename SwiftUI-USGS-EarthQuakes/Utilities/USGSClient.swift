@@ -10,8 +10,9 @@ import CoreLocation
 
 enum USGSClientError:Error {
     case invalidURL
-    case invalidServerResponse
-    case invalidObject
+    case invalidServerResponse(String?)
+    case httpError(Int, String?)
+    case invalidObject(String?)
 }
 struct USGSClient {
     func fetchObject<T:Codable>(_ location:CLLocation) async throws -> T {
@@ -35,15 +36,18 @@ struct USGSClient {
         
         let (data, response) = try await URLSession.shared.data(from: url)
         
-        guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
-                throw USGSClientError.invalidServerResponse
+        guard let httpResponse = response as? HTTPURLResponse else {
+                throw USGSClientError.invalidServerResponse(String(data:data, encoding: .utf8))
+        }
+        
+        if httpResponse.statusCode != 200 {
+            throw USGSClientError.httpError(httpResponse.statusCode, String(data:data, encoding: .utf8))
         }
 
         let decoder = JSONDecoder()
 
         guard let ret = try? decoder.decode(T.self, from: data) else {
-            throw USGSClientError.invalidObject
+            throw USGSClientError.invalidObject(String(data:data, encoding: .utf8))
         }
         
         return ret

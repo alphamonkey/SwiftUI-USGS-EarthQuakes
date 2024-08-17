@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    
 
-    
     @State private var featureCollection:FeatureCollection?
     @State private var isLoading:Bool = false;
     @State private var lastUpdateDate:Date?
     @State private var locationManager = LocationManager()
     @State private var client = USGSClient()
-    
+    @State private var isShowingError = false
+    @State private var errorMessage:String?
+    @State private var errorTitle = "Error"
+
     var body: some View {
         NavigationStack {
             if(isLoading) {
@@ -53,26 +54,58 @@ struct ContentView: View {
 
             ToolbarItem(placement:.bottomBar){
                 Button("", systemImage:"arrow.circlepath") {
+                    
                     Task {
-                        guard let location = locationManager.location else {return}
-                        
-                        isLoading = true
-                        featureCollection = try await client.fetchObject(location)
-                        lastUpdateDate = Date()
-                        isLoading = false
-                        
-
+                        await doFetch()
                     }
                     
-                }.disabled(locationManager.location == nil)
+
+                    
+                }
 
             }
 
+        }.alert(isPresented:$isShowingError) {
+            Alert(title: Text(errorTitle), message: Text(errorMessage ?? ""), dismissButton: .default(Text("Ok")))
         }
       
     }
 }
+extension ContentView {
+    func doFetch() async {
+        guard let location = locationManager.location else {return}
+        
+        isLoading = true
+        do {
+            featureCollection = try await client.fetchObject(location)
+            lastUpdateDate = Date()
+        } catch USGSClientError.httpError(let code, let message) {
+            isShowingError = true
+            errorMessage = message
+            errorTitle = "HTTP Error \(code)"
+        } catch USGSClientError.invalidURL {
+            isShowingError = true
+            errorTitle = "Invalid URL"
+        } catch USGSClientError.invalidObject(let response) {
+            isShowingError = true
+            errorTitle = "Invalid JSON Object"
+            errorMessage = response
+        } catch USGSClientError.invalidServerResponse(let response) {
+            isShowingError = true
+            errorTitle = "Invalid Server Response"
+            errorMessage = response
+        } catch {
+            isShowingError = true
+            errorTitle = "Unexpected error"
+            errorMessage = "\(error.localizedDescription)"
+        }
+        
+        
+        isLoading = false
+        
 
+    }
+}
 #Preview {
     ContentView()
 }
