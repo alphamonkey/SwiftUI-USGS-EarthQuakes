@@ -9,17 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     
-    func defaultDateFormatter() -> DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .medium
-        return dateFormatter
-    }
+
     
     @State private var featureCollection:FeatureCollection?
     @State private var isLoading:Bool = false;
     @State private var lastUpdateDate:Date?
-
+    @State private var locationManager = LocationManager()
+    @State private var client = USGSClient()
+    
     var body: some View {
         NavigationStack {
             if(isLoading) {
@@ -47,7 +44,7 @@ struct ContentView: View {
                         Text("\(fc.metadata.count) Earthquakes")
                     }
                     
-                    Text("Last updated: \(lastUpdateDate == nil ? "Never" : defaultDateFormatter().string(from:lastUpdateDate!))").font(.footnote)
+                    Text("Last updated: \(lastUpdateDate == nil ? "Never" : UtilityFunctions.defaultDateFormatter().string(from:lastUpdateDate!))").font(.footnote)
                 }
             }
             ToolbarItem(placement:.bottomBar){
@@ -57,13 +54,17 @@ struct ContentView: View {
             ToolbarItem(placement:.bottomBar){
                 Button("", systemImage:"arrow.circlepath") {
                     Task {
+                        guard let location = locationManager.location else {return}
+                        
                         isLoading = true
-                        featureCollection = try await USGSClient().fetchObject()
+                        featureCollection = try await client.fetchObject(location)
                         lastUpdateDate = Date()
                         isLoading = false
+                        
+
                     }
                     
-                }
+                }.disabled(locationManager.location == nil)
 
             }
 
