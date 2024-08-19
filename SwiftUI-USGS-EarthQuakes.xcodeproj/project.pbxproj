@@ -15,6 +15,7 @@
 		BC24EB972C701F2300B723C7 /* FeatureGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EB962C701F2300B723C7 /* FeatureGeometry.swift */; };
 		BC24EB9C2C71399100B723C7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EB9B2C71399100B723C7 /* LocationManager.swift */; };
 		BC24EB9E2C71458D00B723C7 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EB9D2C71458D00B723C7 /* UtilityFunctions.swift */; };
+		BC24EBA02C7151E200B723C7 /* FeatureDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EB9F2C7151E200B723C7 /* FeatureDetailView.swift */; };
 		BC9219122C700C6C0096F8AC /* SwiftUI_USGS_EarthQuakesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9219112C700C6C0096F8AC /* SwiftUI_USGS_EarthQuakesApp.swift */; };
 		BC9219142C700C6C0096F8AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9219132C700C6C0096F8AC /* ContentView.swift */; };
 		BC9219162C700C700096F8AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC9219152C700C700096F8AC /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		BC24EB962C701F2300B723C7 /* FeatureGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureGeometry.swift; sourceTree = "<group>"; };
 		BC24EB9B2C71399100B723C7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BC24EB9D2C71458D00B723C7 /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
+		BC24EB9F2C7151E200B723C7 /* FeatureDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureDetailView.swift; sourceTree = "<group>"; };
 		BC92190E2C700C6C0096F8AC /* SwiftUI-USGS-EarthQuakes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-USGS-EarthQuakes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC9219112C700C6C0096F8AC /* SwiftUI_USGS_EarthQuakesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_USGS_EarthQuakesApp.swift; sourceTree = "<group>"; };
 		BC9219132C700C6C0096F8AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		BC24EBA12C715ADE00B723C7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC9219132C700C6C0096F8AC /* ContentView.swift */,
+				BC24EB9F2C7151E200B723C7 /* FeatureDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BC9219052C700C6C0096F8AC = {
 			isa = PBXGroup;
 			children = (
@@ -89,10 +100,10 @@
 		BC9219102C700C6C0096F8AC /* SwiftUI-USGS-EarthQuakes */ = {
 			isa = PBXGroup;
 			children = (
+				BC24EBA12C715ADE00B723C7 /* Views */,
 				BC24EB9A2C71396C00B723C7 /* Utilities */,
 				BC24EB912C7019C300B723C7 /* Model */,
 				BC9219112C700C6C0096F8AC /* SwiftUI_USGS_EarthQuakesApp.swift */,
-				BC9219132C700C6C0096F8AC /* ContentView.swift */,
 				BC9219152C700C700096F8AC /* Assets.xcassets */,
 				BC9219172C700C700096F8AC /* Preview Content */,
 			);
@@ -180,6 +191,7 @@
 				BC24EB972C701F2300B723C7 /* FeatureGeometry.swift in Sources */,
 				BC24EB8A2C70170100B723C7 /* Feature.swift in Sources */,
 				BC9219142C700C6C0096F8AC /* ContentView.swift in Sources */,
+				BC24EBA02C7151E200B723C7 /* FeatureDetailView.swift in Sources */,
 				BC24EB902C70194C00B723C7 /* FeatureMetaData.swift in Sources */,
 				BC24EB8C2C70182C00B723C7 /* FeatureCollection.swift in Sources */,
 				BC24EB932C701A4200B723C7 /* USGSClient.swift in Sources */,

@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct FeatureGeometry:Codable {
     let type:String
     let coordinates:[Double]

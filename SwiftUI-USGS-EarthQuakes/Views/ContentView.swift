@@ -17,54 +17,59 @@ struct ContentView: View {
     @State private var isShowingError = false
     @State private var errorMessage:String?
     @State private var errorTitle = "Error"
+    @State private var isShowingDetail = false
 
     var body: some View {
         NavigationStack {
-            if(isLoading) {
-                ProgressView().controlSize(.extraLarge).tint(.accentColor)
-            }
-            else if let fc = featureCollection {
-                List(fc.features, id: \.self) { feature in
-                    Text(feature.properties.place)
+            VStack {
+                if(isLoading) {
+                    ProgressView().controlSize(.extraLarge).tint(.accentColor)
                 }
-            }
-
-        }.navigationTitle("Test").toolbar {
-            ToolbarItem(placement:.bottomBar){
-                Button("", systemImage:"gearshape") {
-                    return;
-                }
-
-            }
-            ToolbarItem(placement:.bottomBar){
-                Spacer()
-            }
-            ToolbarItem(placement:.bottomBar){
-                VStack {
-                    if let fc = self.featureCollection {
-                        Text("\(fc.metadata.count) Earthquakes")
+                else if let fc = featureCollection {
+                    List(fc.features, id: \.self) { feature in
+                        NavigationLink(feature.properties.place, destination:FeatureDetailView(feature))
                     }
-                    
-                    Text("Last updated: \(lastUpdateDate == nil ? "Never" : UtilityFunctions.defaultDateFormatter().string(from:lastUpdateDate!))").font(.footnote)
                 }
-            }
-            ToolbarItem(placement:.bottomBar){
-                Spacer()
+            }.onAppear {
+                isShowingDetail = false
+            }.onDisappear {
+                isShowingDetail = true
             }
 
-            ToolbarItem(placement:.bottomBar){
-                Button("", systemImage:"arrow.circlepath") {
-                    
-                    Task {
-                        await doFetch()
+        }
+        .navigationTitle("Test").toolbar {
+            if(isShowingDetail == false) {
+                ToolbarItem(placement:.bottomBar){
+                    Button("", systemImage:"gearshape") {
+                        return;
                     }
-                    
+                }
+                ToolbarItem(placement:.bottomBar){
+                    Spacer()
+                }
+                ToolbarItem(placement:.bottomBar){
+                    VStack {
+                        if let fc = self.featureCollection {
+                            Text("\(fc.metadata.count) Earthquakes")
+                        }
+                        
+                        Text("Last updated: \(lastUpdateDate == nil ? "Never" : UtilityFunctions.defaultDateFormatter().string(from:lastUpdateDate!))").font(.footnote)
+                    }
+                }
+                ToolbarItem(placement:.bottomBar){
+                    Spacer()
+                }
+                ToolbarItem(placement:.bottomBar){
+                    Button("", systemImage:"arrow.circlepath") {
+                        Task {
+                            await doFetch()
+                        }
+                    }
 
-                    
                 }
 
             }
-
+            
         }.alert(isPresented:$isShowingError) {
             Alert(title: Text(errorTitle), message: Text(errorMessage ?? ""), dismissButton: .default(Text("Ok")))
         }
