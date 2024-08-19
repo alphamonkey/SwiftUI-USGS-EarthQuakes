@@ -27,6 +27,7 @@ struct FeatureDetailView: View {
                 Map(position: $position) {
                     Marker(feature.properties.place, coordinate:feature.location.coordinate)
                 }.cornerRadius(24).padding(8)
+                FeatureDetailPanel(feature).background(Color(UIColor.systemGray5)).cornerRadius(24.0).padding([.leading, .trailing], 8)
             }
 
             
