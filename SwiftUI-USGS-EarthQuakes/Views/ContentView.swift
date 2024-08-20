@@ -34,6 +34,7 @@ struct ContentView: View {
                     }
                 }
             }.onAppear {
+                locationManager.delegate = self
                 isShowingDetail = false
             }.onDisappear {
                 isShowingDetail = true
@@ -56,7 +57,7 @@ struct ContentView: View {
                             Text("\(fc.metadata.count) Earthquakes")
                         }
                         
-                        Text("Last updated: \(lastUpdateDate == nil ? "Never" : UtilityFunctions.defaultDateFormatter().string(from:lastUpdateDate!))").font(.footnote)
+                        Text("Last updated: \(lastUpdateDate == nil ? "Never" : UtilityFunctions.defaultDateFormatter().string(from:lastUpdateDate!))").font(.footnote).foregroundStyle(Color.secondary)
                     }
                 }
                 ToolbarItem(placement:.bottomBar){
@@ -112,6 +113,13 @@ extension ContentView {
         isLoading = false
         
 
+    }
+}
+extension ContentView:LocationManagerFirstUpdateDelegate {
+    func locationManagerDidDoInitialUpdate() {
+        Task {
+            await doFetch()
+        }
     }
 }
 #Preview {

@@ -12,6 +12,12 @@ import CoreLocation
     
     let manager = CLLocationManager()
     var location:CLLocation?
+    var delegate:LocationManagerFirstUpdateDelegate?
+    
+    convenience init(delegate:LocationManagerFirstUpdateDelegate) {
+        self.init()
+        self.delegate = delegate
+    }
     
     override init() {
         super.init()
@@ -20,9 +26,10 @@ import CoreLocation
     }
     
     
-    
 }
-
+protocol LocationManagerFirstUpdateDelegate {
+    func locationManagerDidDoInitialUpdate()
+}
 extension LocationManager:CLLocationManagerDelegate {
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -34,7 +41,14 @@ extension LocationManager:CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("-- Did Update Location --")
+        var shouldDoInitialUpdate = false
+        if (location == nil) {
+            shouldDoInitialUpdate = true
+        }
         self.location = locations[0]
+        if(shouldDoInitialUpdate && self.delegate != nil) {
+            self.delegate?.locationManagerDidDoInitialUpdate()
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
