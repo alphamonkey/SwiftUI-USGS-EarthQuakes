@@ -29,7 +29,7 @@ struct USGSClient {
         urlString.append("&orderby=magnitude")
         urlString.append("&starttime=\(ago)")
         urlString.append("&endtime=\(now)")
-        
+        print(urlString)
         guard let url = URL(string:urlString) else {
             throw USGSClientError.invalidURL
         }

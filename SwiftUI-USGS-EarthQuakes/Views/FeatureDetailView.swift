@@ -38,3 +38,6 @@ struct FeatureDetailView: View {
 }
 
 
+#Preview {
+    FeatureDetailView(Feature.mockFeature)
+}

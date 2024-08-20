@@ -15,9 +15,9 @@ struct FeatureDetailPanel: View {
     }
     var body: some View {
         
-        let featureDateString = UtilityFunctions.defaultDateFormatter().string(from: Date(timeIntervalSince1970: feature.properties.time))
+
         VStack(alignment: .leading) {
-            FeaturePropertyView(propertyKey: "Time", propertyValue: featureDateString)
+            FeaturePropertyView(propertyKey: "Time", propertyValue: UtilityFunctions.defaultDateString(feature.date))
             FeaturePropertyView(propertyKey: "Magnitude", propertyValue: (feature.properties.mag))
             FeaturePropertyView(propertyKey: "Alert", propertyValue: feature.properties.alert)
             FeaturePropertyView(propertyKey: "Significance", propertyValue: feature.properties.sig)
@@ -27,3 +27,6 @@ struct FeatureDetailPanel: View {
 }
 
 
+#Preview {
+    FeatureDetailPanel(Feature.mockFeature)
+}

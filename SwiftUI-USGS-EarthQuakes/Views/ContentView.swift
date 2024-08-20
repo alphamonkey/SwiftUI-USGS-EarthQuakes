@@ -27,7 +27,10 @@ struct ContentView: View {
                 }
                 else if let fc = featureCollection {
                     List(fc.features, id: \.self) { feature in
-                        NavigationLink(feature.properties.place, destination:FeatureDetailView(feature))
+                        
+                        NavigationLink(destination: FeatureDetailView(feature)) {
+                            FeatureListItemView(feature, currentLocation: locationManager.location)
+                        }
                     }
                 }
             }.onAppear {
