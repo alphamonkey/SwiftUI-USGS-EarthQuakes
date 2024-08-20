@@ -46,4 +46,7 @@ extension Double {
     func metersToMiles() -> Double {
         return self * 0.000621371
     }
+    func milesToKilometers() -> Double {
+        return self * 1.6
+    }
 }

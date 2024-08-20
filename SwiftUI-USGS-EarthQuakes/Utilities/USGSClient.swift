@@ -20,12 +20,12 @@ struct USGSClient {
         var urlString = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson"
         
         let now = Date().ISO8601Format()
-        let ago = Date(timeIntervalSinceNow: -(60 * 60 * 24)).ISO8601Format()
+        let ago = Date(timeIntervalSinceNow: -(60 * 60 * 24 * Settings.daysAgo.get())).ISO8601Format()
         
         urlString.append("&latitude=\(location.coordinate.latitude)")
         urlString.append("&longitude=\(location.coordinate.longitude)")
-        urlString.append("&maxradiuskm=80")
-        urlString.append("&minmagnitude=1")
+        urlString.append("&maxradiuskm=\(Settings.maxRadius.get().milesToKilometers())")
+        urlString.append("&minmagnitude=\(Settings.minMag.get())")
         urlString.append("&orderby=magnitude")
         urlString.append("&starttime=\(ago)")
         urlString.append("&endtime=\(now)")
