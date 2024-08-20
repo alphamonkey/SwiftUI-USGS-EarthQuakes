@@ -18,12 +18,16 @@ struct ContentView: View {
     @State private var errorMessage:String?
     @State private var errorTitle = "Error"
     @State private var isShowingDetail = false
-
+    @State private var isShowingSettings = false
     var body: some View {
         NavigationStack {
             VStack {
                 if(isLoading) {
                     ProgressView().controlSize(.extraLarge).tint(.accentColor)
+                }
+                else if(isShowingError) {
+                    Text(errorTitle).font(.title).foregroundStyle(Color.highMag)
+                    Text(errorMessage ?? "").padding(16).border(.secondary).padding([.leading, .trailing], 24)
                 }
                 else if let fc = featureCollection {
                     List(fc.features, id: \.self) { feature in
@@ -49,8 +53,10 @@ struct ContentView: View {
             if(isShowingDetail == false) {
                 ToolbarItem(placement:.bottomBar){
                     Button("", systemImage:"gearshape") {
-                        return;
-                    }
+                        isShowingSettings.toggle()
+                    }.sheet(isPresented: $isShowingSettings, content: {
+                        SettingsView(delegate:self, isPresented:$isShowingSettings)
+                    })
                 }
                 ToolbarItem(placement:.bottomBar){
                     Spacer()
@@ -78,8 +84,6 @@ struct ContentView: View {
 
             }
             
-        }.alert(isPresented:$isShowingError) {
-            Alert(title: Text(errorTitle), message: Text(errorMessage ?? ""), dismissButton: .default(Text("Ok")))
         }
       
     }
@@ -87,7 +91,7 @@ struct ContentView: View {
 extension ContentView {
     func doFetch() async {
         guard let location = locationManager.location else {return}
-        
+        isShowingError = false
         isLoading = true
         do {
             featureCollection = try await client.fetchObject(location)
@@ -121,6 +125,14 @@ extension ContentView {
 }
 extension ContentView:LocationManagerFirstUpdateDelegate {
     func locationManagerDidDoInitialUpdate() {
+        Task {
+            await doFetch()
+        }
+    }
+}
+
+extension ContentView:SettingsViewDelegate {
+    func didUpdateSettings() {
         Task {
             await doFetch()
         }
