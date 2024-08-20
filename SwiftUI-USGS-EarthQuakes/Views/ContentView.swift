@@ -31,6 +31,10 @@ struct ContentView: View {
                         NavigationLink(destination: FeatureDetailView(feature)) {
                             FeatureListItemView(feature, currentLocation: locationManager.location)
                         }
+                    }.refreshable {
+                        Task {
+                            await doFetch()
+                        }
                     }
                 }
             }.onAppear {
