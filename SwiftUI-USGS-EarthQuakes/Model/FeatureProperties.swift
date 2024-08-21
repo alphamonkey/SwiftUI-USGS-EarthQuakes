@@ -19,7 +19,7 @@ struct FeatureProperties:Codable {
     let alert:String?
     let status:String?
     let tsunami:Int?
-    let sig:Int?
+    let sig:Int
     let code:String?
     let sources:String?
     let types:String?
