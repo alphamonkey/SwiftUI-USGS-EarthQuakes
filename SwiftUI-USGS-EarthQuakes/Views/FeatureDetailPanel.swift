@@ -14,15 +14,12 @@ struct FeatureDetailPanel: View {
         self.feature = feature
     }
     var body: some View {
-        
-
         VStack(alignment: .leading) {
             FeaturePropertyView(propertyKey: "Time", propertyValue: UtilityFunctions.defaultDateString(feature.date))
             FeaturePropertyView(propertyKey: "Magnitude", propertyValue: (feature.properties.mag))
             FeaturePropertyView(propertyKey: "Alert", propertyValue: feature.properties.alert)
             FeaturePropertyView(propertyKey: "Significance", propertyValue: feature.properties.sig)
         }.padding(8)
-
     }
 }
 

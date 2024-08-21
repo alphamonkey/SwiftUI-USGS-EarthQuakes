@@ -12,9 +12,9 @@ import CoreLocation
     
     let manager = CLLocationManager()
     var location:CLLocation?
-    var delegate:LocationManagerFirstUpdateDelegate?
+    var delegate:LocationManagerUpdateDelegate?
     
-    convenience init(delegate:LocationManagerFirstUpdateDelegate) {
+    convenience init(delegate:LocationManagerUpdateDelegate) {
         self.init()
         self.delegate = delegate
     }
@@ -27,16 +27,22 @@ import CoreLocation
     
     
 }
-protocol LocationManagerFirstUpdateDelegate {
+protocol LocationManagerUpdateDelegate {
     func locationManagerDidDoInitialUpdate()
+    func locationManagerDidFailToGetPermissions()
 }
 extension LocationManager:CLLocationManagerDelegate {
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         print("-- Did Change Authorization --")
+        
         if manager.authorizationStatus != .denied {
             manager.startUpdatingLocation()
         }
+        else {
+            delegate?.locationManagerDidFailToGetPermissions()
+        }
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -54,6 +60,8 @@ extension LocationManager:CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         print("-- Did Fail with error --")
         print("-- \(error.localizedDescription) --")
+        delegate?.locationManagerDidFailToGetPermissions()
+        
     }
 }
 

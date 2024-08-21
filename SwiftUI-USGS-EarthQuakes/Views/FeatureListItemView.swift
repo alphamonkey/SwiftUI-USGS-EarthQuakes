@@ -29,7 +29,6 @@ struct FeatureListItemView: View {
                      }
                      Spacer()
                  }
-                 
             }
             Spacer()
             Image(systemName: "chart.xyaxis.line").foregroundColor(feature.magColor)

@@ -22,8 +22,8 @@ struct SettingsView: View {
                 }.foregroundStyle(Color.highMag).padding(16)
                 
                 Text("Settings").font(.title2)
-                
             }
+            
             VStack {
                 FeaturePropertyView(propertyKey: "Max Radius (miles)", propertyValue: Int(maxRadius))
                 Slider(value:$maxRadius, in:1...500, step:1) { editing in

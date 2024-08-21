@@ -20,6 +20,7 @@ struct FeatureDetailView: View {
         let region = MKCoordinateRegion(center:feature.location.coordinate, span:span)
         self.position = MapCameraPosition.region(region)
     }
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -29,12 +30,8 @@ struct FeatureDetailView: View {
                 }.cornerRadius(24).padding(8)
                 FeatureDetailPanel(feature).background(Color(UIColor.systemGray5)).cornerRadius(24.0).padding([.leading, .trailing], 8)
             }
-
-            
         }.navigationTitle(feature.properties.place)
-
     }
-    
 }
 
 

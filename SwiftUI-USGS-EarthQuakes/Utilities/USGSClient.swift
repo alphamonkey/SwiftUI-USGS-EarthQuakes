@@ -30,6 +30,7 @@ struct USGSClient {
         urlString.append("&starttime=\(ago)")
         urlString.append("&endtime=\(now)")
         print(urlString)
+        
         guard let url = URL(string:urlString) else {
             throw USGSClientError.invalidURL
         }
@@ -46,13 +47,9 @@ struct USGSClient {
 
         let decoder = JSONDecoder()
 
- 
-        
         guard let ret = try? decoder.decode(T.self, from: data) else {
             // If we get a huge but erroneous body back and throw it in the exception, it causes crazy behavior, so we are truncating it to 4k
             throw USGSClientError.invalidObject(String((String(data:data, encoding: .utf8) ?? "Malformed JSON").prefix(4096)))
-     
-                
         }
         
         return ret

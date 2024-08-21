@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-
     @State private var featureCollection:FeatureCollection?
     @State private var isLoading:Bool = false;
     @State private var lastUpdateDate:Date?
@@ -19,19 +18,22 @@ struct ContentView: View {
     @State private var errorTitle = "Error"
     @State private var isShowingDetail = false
     @State private var isShowingSettings = false
+    
     var body: some View {
         NavigationStack {
             VStack {
+
                 if(isLoading) {
                     ProgressView().controlSize(.extraLarge).tint(.accentColor)
                 }
+
                 else if(isShowingError) {
                     Text(errorTitle).font(.title).foregroundStyle(Color.highMag)
                     Text(errorMessage ?? "").padding(16).border(.secondary).padding([.leading, .trailing], 24)
                 }
+                
                 else if let fc = featureCollection {
                     List(fc.features, id: \.self) { feature in
-                        
                         NavigationLink(destination: FeatureDetailView(feature)) {
                             FeatureListItemView(feature, currentLocation: locationManager.location)
                         }
@@ -44,6 +46,9 @@ struct ContentView: View {
             }.onAppear {
                 locationManager.delegate = self
                 isShowingDetail = false
+                if(locationManager.location == nil) {
+                    self.locationManagerDidFailToGetPermissions()
+                }
             }.onDisappear {
                 isShowingDetail = true
             }
@@ -66,7 +71,6 @@ struct ContentView: View {
                         if let fc = self.featureCollection {
                             Text("\(fc.metadata.count) Earthquakes")
                         }
-                        
                         Text("Last updated: \(lastUpdateDate == nil ? "Never" : UtilityFunctions.defaultDateFormatter().string(from:lastUpdateDate!))").font(.footnote).foregroundStyle(Color.secondary)
                     }
                 }
@@ -116,18 +120,23 @@ extension ContentView {
             errorTitle = "Unexpected error"
             errorMessage = "\(error.localizedDescription)"
         }
-        
-        
+
         isLoading = false
         
-
     }
 }
-extension ContentView:LocationManagerFirstUpdateDelegate {
+extension ContentView:LocationManagerUpdateDelegate {
     func locationManagerDidDoInitialUpdate() {
         Task {
             await doFetch()
         }
+    }
+    func locationManagerDidFailToGetPermissions() {
+        isShowingError=true
+        isLoading=false
+        
+        errorTitle = "Location Services"
+        errorMessage = "Could not find your location.  Please make sure you have granted permission for this app in Settings."
     }
 }
 
