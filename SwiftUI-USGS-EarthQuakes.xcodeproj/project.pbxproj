@@ -45,7 +45,7 @@
 		BC24EBAC2C7566F400B723C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BC92190E2C700C6C0096F8AC /* SwiftUI-USGS-EarthQuakes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-USGS-EarthQuakes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC9219112C700C6C0096F8AC /* SwiftUI_USGS_EarthQuakesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_USGS_EarthQuakesApp.swift; sourceTree = "<group>"; };
-		BC9219132C700C6C0096F8AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BC9219132C700C6C0096F8AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		BC9219152C700C700096F8AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC9219182C700C700096F8AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
