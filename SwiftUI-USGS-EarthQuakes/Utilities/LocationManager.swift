@@ -10,8 +10,9 @@ import CoreLocation
 
 @Observable class LocationManager: NSObject {
     
-    let manager = CLLocationManager()
     var location:CLLocation?
+    
+    private let manager = CLLocationManager()
     var delegate:LocationManagerUpdateDelegate?
     
     convenience init(delegate:LocationManagerUpdateDelegate) {
@@ -24,13 +25,13 @@ import CoreLocation
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
     }
-    
-    
+
 }
 protocol LocationManagerUpdateDelegate {
     func locationManagerDidDoInitialUpdate()
     func locationManagerDidFailToGetPermissions()
 }
+
 extension LocationManager:CLLocationManagerDelegate {
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
