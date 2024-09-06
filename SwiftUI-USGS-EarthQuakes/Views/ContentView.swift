@@ -36,6 +36,7 @@ struct ContentView: View {
                     }
                 }
             }.onAppear {
+                viewModel.isShowingDetail = false
                 if(viewModel.location == nil) {
                     viewModel.locationManagerDidFailToGetPermissions()
                 }
