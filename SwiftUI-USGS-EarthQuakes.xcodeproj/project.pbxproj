@@ -25,6 +25,8 @@
 		BC9219142C700C6C0096F8AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9219132C700C6C0096F8AC /* ContentView.swift */; };
 		BC9219162C700C700096F8AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC9219152C700C700096F8AC /* Assets.xcassets */; };
 		BC9219192C700C700096F8AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC9219182C700C700096F8AC /* Preview Assets.xcassets */; };
+		BCE4EEC62C8A758800EBB366 /* FeatureListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4EEC52C8A758800EBB366 /* FeatureListViewModel.swift */; };
+		BCE4EEC82C8A7BCD00EBB366 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4EEC72C8A7BCD00EBB366 /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		BC9219132C700C6C0096F8AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		BC9219152C700C700096F8AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC9219182C700C700096F8AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BCE4EEC52C8A758800EBB366 /* FeatureListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureListViewModel.swift; sourceTree = "<group>"; };
+		BCE4EEC72C8A7BCD00EBB366 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				BC24EBAC2C7566F400B723C7 /* Info.plist */,
+				BCE4EEC42C8A756F00EBB366 /* ViewModels */,
 				BC24EBA12C715ADE00B723C7 /* Views */,
 				BC24EB9A2C71396C00B723C7 /* Utilities */,
 				BC24EB912C7019C300B723C7 /* Model */,
@@ -133,6 +138,15 @@
 				BC9219182C700C700096F8AC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BCE4EEC42C8A756F00EBB366 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BCE4EEC52C8A758800EBB366 /* FeatureListViewModel.swift */,
+				BCE4EEC72C8A7BCD00EBB366 /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,11 +230,13 @@
 				BC24EB932C701A4200B723C7 /* USGSClient.swift in Sources */,
 				BC24EBAB2C7532C100B723C7 /* SettingsView.swift in Sources */,
 				BC24EBA92C752B4100B723C7 /* Settings.swift in Sources */,
+				BCE4EEC62C8A758800EBB366 /* FeatureListViewModel.swift in Sources */,
 				BC9219122C700C6C0096F8AC /* SwiftUI_USGS_EarthQuakesApp.swift in Sources */,
 				BC24EB952C701ED400B723C7 /* FeatureProperties.swift in Sources */,
 				BC24EB9E2C71458D00B723C7 /* UtilityFunctions.swift in Sources */,
 				BC24EB9C2C71399100B723C7 /* LocationManager.swift in Sources */,
 				BC24EBA52C73A9EE00B723C7 /* FeaturePropertyView.swift in Sources */,
+				BCE4EEC82C8A7BCD00EBB366 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
