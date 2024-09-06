@@ -24,6 +24,8 @@ import CoreLocation
         super.init()
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
+        manager.desiredAccuracy = kCLLocationAccuracyReduced
+        manager.distanceFilter = 100
     }
 
 }
@@ -38,6 +40,7 @@ extension LocationManager:CLLocationManagerDelegate {
         print("-- Did Change Authorization --")
         
         if manager.authorizationStatus != .denied {
+  
             manager.startUpdatingLocation()
         }
         else {
