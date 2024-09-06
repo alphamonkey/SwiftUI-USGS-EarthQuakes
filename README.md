@@ -5,6 +5,7 @@
   * Mobile App Development
   * Native iOS Development
   * SwiftUI
+  * MVVM
   * HTTP/JSON API Integration
   * MapKit
   * Core Location
