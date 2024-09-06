@@ -9,10 +9,8 @@ import SwiftUI
 
 struct SettingsView: View {
     let delegate:SettingsViewDelegate?
+    @State var viewModel:SettingsViewModel = SettingsViewModel()
     @Binding var isPresented:Bool
-    @State var maxRadius:Double = Settings.maxRadius.get()
-    @State var minMag:Double = Settings.minMag.get()
-    @State var daysAgo:Double = Settings.daysAgo.get()
     
     var body: some View {
         VStack(alignment:.leading) {
@@ -25,24 +23,24 @@ struct SettingsView: View {
             }
             
             VStack {
-                FeaturePropertyView(propertyKey: "Max Radius (miles)", propertyValue: Int(maxRadius))
-                Slider(value:$maxRadius, in:1...500, step:1) { editing in
+                FeaturePropertyView(propertyKey: "Max Radius (miles)", propertyValue: Int(viewModel.radiusSliderValue))
+                Slider(value:$viewModel.radiusSliderValue, in:1...500, step:1) { editing in
                     if(!editing) {
-                        Settings.maxRadius.set(maxRadius)
+                        viewModel.maxRadius = viewModel.radiusSliderValue
                         delegate?.didUpdateSettings()
                     }
                 }
-                FeaturePropertyView(propertyKey: "Minimum Magnitude", propertyValue: String(format:"%.1f", minMag))
-                Slider(value:$minMag, in:0...10, step:0.1) { editing in
+                FeaturePropertyView(propertyKey: "Minimum Magnitude", propertyValue: String(format:"%.1f", viewModel.minMagSliderValue))
+                Slider(value:$viewModel.minMagSliderValue, in:0...10, step:0.1) { editing in
                     if(!editing) {
-                        Settings.minMag.set(minMag)
+                        viewModel.minMag = viewModel.minMagSliderValue
                         delegate?.didUpdateSettings()
                     }
                 }
-                FeaturePropertyView(propertyKey: "Date (days ago)", propertyValue: Int(daysAgo))
-                Slider(value:$daysAgo, in:1...365, step:1) { editing in
+                FeaturePropertyView(propertyKey: "Date (days ago)", propertyValue: Int(viewModel.daysAgoSliderValue))
+                Slider(value:$viewModel.daysAgoSliderValue, in:1...365, step:1) { editing in
                     if(!editing) {
-                        Settings.daysAgo.set(daysAgo)
+                        viewModel.daysAgo = viewModel.daysAgoSliderValue
                         delegate?.didUpdateSettings()
                     }
                 }

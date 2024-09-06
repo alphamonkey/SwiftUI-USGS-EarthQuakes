@@ -26,6 +26,7 @@
 		BC9219162C700C700096F8AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC9219152C700C700096F8AC /* Assets.xcassets */; };
 		BC9219192C700C700096F8AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC9219182C700C700096F8AC /* Preview Assets.xcassets */; };
 		BCE4EEC62C8A758800EBB366 /* FeatureListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4EEC52C8A758800EBB366 /* FeatureListViewModel.swift */; };
+		BCE4EEC82C8A7BCD00EBB366 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4EEC72C8A7BCD00EBB366 /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		BC9219152C700C700096F8AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC9219182C700C700096F8AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BCE4EEC52C8A758800EBB366 /* FeatureListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureListViewModel.swift; sourceTree = "<group>"; };
+		BCE4EEC72C8A7BCD00EBB366 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				BCE4EEC52C8A758800EBB366 /* FeatureListViewModel.swift */,
+				BCE4EEC72C8A7BCD00EBB366 /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				BC24EB9E2C71458D00B723C7 /* UtilityFunctions.swift in Sources */,
 				BC24EB9C2C71399100B723C7 /* LocationManager.swift in Sources */,
 				BC24EBA52C73A9EE00B723C7 /* FeaturePropertyView.swift in Sources */,
+				BCE4EEC82C8A7BCD00EBB366 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
