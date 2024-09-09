@@ -15,6 +15,10 @@ struct Feature: Codable {
     let geometry:FeatureGeometry
     let id:String
     
+    var url:URL {
+        return URL(string:"usgsearthquake://\(self.id)")!
+    }
+    
     var location:CLLocation {
         return CLLocation(latitude: self.geometry.coordinates[1], longitude: self.geometry.coordinates[0])
     }
