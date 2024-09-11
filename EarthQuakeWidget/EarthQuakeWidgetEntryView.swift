@@ -31,9 +31,9 @@ struct EarthQuakeWidgetEntryView : View {
                
                 
                
-            }.padding(8.0)
+            }.padding(8.0).widgetURL(entry.feature.url)
             }
-        }
+    }
 
 
     }

@@ -10,7 +10,7 @@ import CoreLocation
 import MapKit
 
 struct FeatureDetailView: View {
-
+    
     @State private var feature:Feature
     @State private var position:MapCameraPosition
     
@@ -19,6 +19,7 @@ struct FeatureDetailView: View {
         let span = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
         let region = MKCoordinateRegion(center:feature.location.coordinate, span:span)
         self.position = MapCameraPosition.region(region)
+        print(feature.url)
     }
     
     var body: some View {
