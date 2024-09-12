@@ -20,8 +20,9 @@ struct EarthQuakeWidgetEntryView : View {
             VStack {
                 Spacer()
                 HStack {
-                    Text(entry.feature.shortPlace.split(separator: ",")[0]).padding([.leading, .trailing]).font(.footnote).foregroundStyle(Color.white)
-        
+                    if let distance = entry.distance {
+                        Text("\(distance) mi").padding([.leading], 14.0).font(.subheadline).foregroundStyle(.white)
+                    }
                     Image(systemName:"chart.xyaxis.line").bold().foregroundStyle(entry.feature.magColor).font(.subheadline)
                     Text(String(format:("%.1f"), entry.feature.properties.mag)).padding([.trailing]).foregroundStyle(entry.feature.magColor).font(.subheadline).bold()
                     

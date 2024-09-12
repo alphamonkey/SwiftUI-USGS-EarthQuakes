@@ -12,7 +12,7 @@ struct FeatureEntry: TimelineEntry {
     let date: Date
     let feature:Feature
     var image:UIImage?
-    
+    var distance:Int?
     init(date:Date, feature:Feature) {
         self.date = date
         self.feature = feature

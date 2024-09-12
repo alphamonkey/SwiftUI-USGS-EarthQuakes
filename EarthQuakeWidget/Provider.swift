@@ -35,7 +35,7 @@ struct Provider: TimelineProvider {
                 if let featureCollection:FeatureCollection = try? await client.fetchObject(location) {
                     if featureCollection.metadata.count != 0 {
                         var entry = FeatureEntry(date:Date(), feature: featureCollection.features[0])
-                        
+                        entry.distance = Int(location.distance(from: entry.feature.location).metersToMiles())
                         let mapSnapShotter = makeSnapshot(entry: entry, size: context.displaySize)
                          let snapshot = try await mapSnapShotter.start()
                             entry.image = snapshot.image
@@ -55,7 +55,7 @@ struct Provider: TimelineProvider {
                 if let featureCollection:FeatureCollection = try? await client.fetchObject(location) {
                     if featureCollection.metadata.count != 0 {
                         var entry = FeatureEntry(date:Date(), feature: featureCollection.features[0])
-                        
+                        entry.distance = Int(location.distance(from: entry.feature.location).metersToMiles())
                         let mapSnapShotter = makeSnapshot(entry: entry, size: context.displaySize)
                          let snapshot = try await mapSnapShotter.start()
                             entry.image = snapshot.image
