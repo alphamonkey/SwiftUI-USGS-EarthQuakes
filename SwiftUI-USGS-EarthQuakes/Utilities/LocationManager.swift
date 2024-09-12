@@ -24,6 +24,8 @@ import CoreLocation
         super.init()
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
+        
+        
     }
 
 }
@@ -51,10 +53,13 @@ extension LocationManager:CLLocationManagerDelegate {
         var shouldDoInitialUpdate = false
         if (location == nil) {
             shouldDoInitialUpdate = true
+            manager.desiredAccuracy = kCLLocationAccuracyReduced
+            manager.distanceFilter = 100
         }
         self.location = locations[0]
         if(shouldDoInitialUpdate && self.delegate != nil) {
             self.delegate?.locationManagerDidDoInitialUpdate()
+
         }
     }
     

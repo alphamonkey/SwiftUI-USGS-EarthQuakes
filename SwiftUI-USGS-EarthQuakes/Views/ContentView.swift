@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var viewModel:FeatureListViewModel = FeatureListViewModel()
-    
+    @State private var navPath = NavigationPath()
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $navPath) {
             VStack {
 
                 if(viewModel.isLoading) {
@@ -26,13 +26,16 @@ struct ContentView: View {
                 
                 else if let fc = viewModel.featureCollection {
                     List(fc.features, id: \.self) { feature in
-                        NavigationLink(destination: FeatureDetailView(feature)) {
+                        NavigationLink(value:feature) {
                             FeatureListItemView(feature, currentLocation: viewModel.location)
                         }
                     }.refreshable {
                         Task {
                             await viewModel.doFetch()
                         }
+                    }.navigationDestination(for: Feature.self) {
+                        feature in
+                        FeatureDetailView(feature)
                     }
                 }
             }.onAppear {
@@ -42,6 +45,7 @@ struct ContentView: View {
                 }
             }.onDisappear {
                 viewModel.isShowingDetail = true
+                print(navPath.count)
             }
 
         }
@@ -79,6 +83,16 @@ struct ContentView: View {
 
                 }
 
+            }
+            
+        }.onOpenURL { url in
+            viewModel.isShowingDetail = false
+            
+            if !navPath.isEmpty {
+                navPath.removeLast()
+            }
+            if let selectedFeature = viewModel.featureCollection?.features.filter({$0.url == url}).first {
+                navPath.append(selectedFeature)
             }
             
         }

@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC03748F2C8B6FF500E78E59 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC03748E2C8B6FF500E78E59 /* WidgetKit.framework */; };
+		BC0374912C8B6FF500E78E59 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0374902C8B6FF500E78E59 /* SwiftUI.framework */; };
+		BC0374942C8B6FF500E78E59 /* EarthQuakeWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0374932C8B6FF500E78E59 /* EarthQuakeWidgetBundle.swift */; };
+		BC0374962C8B6FF500E78E59 /* EarthQuakeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0374952C8B6FF500E78E59 /* EarthQuakeWidget.swift */; };
+		BC0374982C8B6FF900E78E59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC0374972C8B6FF900E78E59 /* Assets.xcassets */; };
+		BC03749C2C8B6FF900E78E59 /* EarthQuakeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BC03748C2C8B6FF500E78E59 /* EarthQuakeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BC0374A12C8B773E00E78E59 /* FeatureProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EB942C701ED400B723C7 /* FeatureProperties.swift */; };
+		BC0374A22C8B773E00E78E59 /* FeatureMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EB8F2C70194C00B723C7 /* FeatureMetaData.swift */; };
+		BC0374A32C8B773E00E78E59 /* FeatureCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EB8B2C70182C00B723C7 /* FeatureCollection.swift */; };
+		BC0374A42C8B773E00E78E59 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EB892C70170100B723C7 /* Feature.swift */; };
+		BC0374A52C8B773E00E78E59 /* FeatureGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EB962C701F2300B723C7 /* FeatureGeometry.swift */; };
+		BC0374A62C8B780200E78E59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC9219152C700C700096F8AC /* Assets.xcassets */; };
+		BC0374A72C8B7AF200E78E59 /* USGSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EB922C701A4200B723C7 /* USGSClient.swift */; };
+		BC0374A82C8B7B0C00E78E59 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EBA82C752B4100B723C7 /* Settings.swift */; };
+		BC0374A92C8B7B0F00E78E59 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EB9D2C71458D00B723C7 /* UtilityFunctions.swift */; };
+		BC0374AA2C8B7B1300E78E59 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EB9B2C71399100B723C7 /* LocationManager.swift */; };
+		BC0374AC2C8BB03D00E78E59 /* FeatureEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0374AB2C8BB03D00E78E59 /* FeatureEntry.swift */; };
+		BC0374AE2C8BB07F00E78E59 /* EarthQuakeWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0374AD2C8BB07F00E78E59 /* EarthQuakeWidgetEntryView.swift */; };
+		BC0374B02C8BB0C800E78E59 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0374AF2C8BB0C800E78E59 /* Provider.swift */; };
 		BC24EB8A2C70170100B723C7 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EB892C70170100B723C7 /* Feature.swift */; };
 		BC24EB8C2C70182C00B723C7 /* FeatureCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EB8B2C70182C00B723C7 /* FeatureCollection.swift */; };
 		BC24EB902C70194C00B723C7 /* FeatureMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24EB8F2C70194C00B723C7 /* FeatureMetaData.swift */; };
@@ -29,7 +48,41 @@
 		BCE4EEC82C8A7BCD00EBB366 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4EEC72C8A7BCD00EBB366 /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BC03749A2C8B6FF900E78E59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC9219062C700C6C0096F8AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC03748B2C8B6FF500E78E59;
+			remoteInfo = EarthQuakeWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BC03749D2C8B6FF900E78E59 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BC03749C2C8B6FF900E78E59 /* EarthQuakeWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		BC03748C2C8B6FF500E78E59 /* EarthQuakeWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EarthQuakeWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC03748E2C8B6FF500E78E59 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		BC0374902C8B6FF500E78E59 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		BC0374932C8B6FF500E78E59 /* EarthQuakeWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthQuakeWidgetBundle.swift; sourceTree = "<group>"; };
+		BC0374952C8B6FF500E78E59 /* EarthQuakeWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthQuakeWidget.swift; sourceTree = "<group>"; };
+		BC0374972C8B6FF900E78E59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BC0374992C8B6FF900E78E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC0374AB2C8BB03D00E78E59 /* FeatureEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureEntry.swift; sourceTree = "<group>"; };
+		BC0374AD2C8BB07F00E78E59 /* EarthQuakeWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthQuakeWidgetEntryView.swift; sourceTree = "<group>"; };
+		BC0374AF2C8BB0C800E78E59 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		BC24EB892C70170100B723C7 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		BC24EB8B2C70182C00B723C7 /* FeatureCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCollection.swift; sourceTree = "<group>"; };
 		BC24EB8F2C70194C00B723C7 /* FeatureMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureMetaData.swift; sourceTree = "<group>"; };
@@ -55,6 +108,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BC0374892C8B6FF500E78E59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC0374912C8B6FF500E78E59 /* SwiftUI.framework in Frameworks */,
+				BC03748F2C8B6FF500E78E59 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC92190B2C700C6C0096F8AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -65,6 +127,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC03748D2C8B6FF500E78E59 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC03748E2C8B6FF500E78E59 /* WidgetKit.framework */,
+				BC0374902C8B6FF500E78E59 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC0374922C8B6FF500E78E59 /* EarthQuakeWidget */ = {
+			isa = PBXGroup;
+			children = (
+				BC0374952C8B6FF500E78E59 /* EarthQuakeWidget.swift */,
+				BC0374932C8B6FF500E78E59 /* EarthQuakeWidgetBundle.swift */,
+				BC0374AD2C8BB07F00E78E59 /* EarthQuakeWidgetEntryView.swift */,
+				BC0374AB2C8BB03D00E78E59 /* FeatureEntry.swift */,
+				BC0374AF2C8BB0C800E78E59 /* Provider.swift */,
+				BC0374972C8B6FF900E78E59 /* Assets.xcassets */,
+				BC0374992C8B6FF900E78E59 /* Info.plist */,
+			);
+			path = EarthQuakeWidget;
+			sourceTree = "<group>";
+		};
 		BC24EB912C7019C300B723C7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				BC9219102C700C6C0096F8AC /* SwiftUI-USGS-EarthQuakes */,
+				BC0374922C8B6FF500E78E59 /* EarthQuakeWidget */,
+				BC03748D2C8B6FF500E78E59 /* Frameworks */,
 				BC92190F2C700C6C0096F8AC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -113,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				BC92190E2C700C6C0096F8AC /* SwiftUI-USGS-EarthQuakes.app */,
+				BC03748C2C8B6FF500E78E59 /* EarthQuakeWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,6 +240,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BC03748B2C8B6FF500E78E59 /* EarthQuakeWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC0374A02C8B6FF900E78E59 /* Build configuration list for PBXNativeTarget "EarthQuakeWidgetExtension" */;
+			buildPhases = (
+				BC0374882C8B6FF500E78E59 /* Sources */,
+				BC0374892C8B6FF500E78E59 /* Frameworks */,
+				BC03748A2C8B6FF500E78E59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EarthQuakeWidgetExtension;
+			productName = EarthQuakeWidgetExtension;
+			productReference = BC03748C2C8B6FF500E78E59 /* EarthQuakeWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		BC92190D2C700C6C0096F8AC /* SwiftUI-USGS-EarthQuakes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC92191C2C700C700096F8AC /* Build configuration list for PBXNativeTarget "SwiftUI-USGS-EarthQuakes" */;
@@ -159,10 +264,12 @@
 				BC92190A2C700C6C0096F8AC /* Sources */,
 				BC92190B2C700C6C0096F8AC /* Frameworks */,
 				BC92190C2C700C6C0096F8AC /* Resources */,
+				BC03749D2C8B6FF900E78E59 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BC03749B2C8B6FF900E78E59 /* PBXTargetDependency */,
 			);
 			name = "SwiftUI-USGS-EarthQuakes";
 			productName = "SwiftUI-USGS-EarthQuakes";
@@ -179,6 +286,9 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					BC03748B2C8B6FF500E78E59 = {
+						CreatedOnToolsVersion = 15.4;
+					};
 					BC92190D2C700C6C0096F8AC = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -198,11 +308,21 @@
 			projectRoot = "";
 			targets = (
 				BC92190D2C700C6C0096F8AC /* SwiftUI-USGS-EarthQuakes */,
+				BC03748B2C8B6FF500E78E59 /* EarthQuakeWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BC03748A2C8B6FF500E78E59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC0374A62C8B780200E78E59 /* Assets.xcassets in Resources */,
+				BC0374982C8B6FF900E78E59 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC92190C2C700C6C0096F8AC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,6 +335,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BC0374882C8B6FF500E78E59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC0374962C8B6FF500E78E59 /* EarthQuakeWidget.swift in Sources */,
+				BC0374A12C8B773E00E78E59 /* FeatureProperties.swift in Sources */,
+				BC0374B02C8BB0C800E78E59 /* Provider.swift in Sources */,
+				BC0374A22C8B773E00E78E59 /* FeatureMetaData.swift in Sources */,
+				BC0374AA2C8B7B1300E78E59 /* LocationManager.swift in Sources */,
+				BC0374A32C8B773E00E78E59 /* FeatureCollection.swift in Sources */,
+				BC0374A72C8B7AF200E78E59 /* USGSClient.swift in Sources */,
+				BC0374A42C8B773E00E78E59 /* Feature.swift in Sources */,
+				BC0374A82C8B7B0C00E78E59 /* Settings.swift in Sources */,
+				BC0374A52C8B773E00E78E59 /* FeatureGeometry.swift in Sources */,
+				BC0374A92C8B7B0F00E78E59 /* UtilityFunctions.swift in Sources */,
+				BC0374AE2C8BB07F00E78E59 /* EarthQuakeWidgetEntryView.swift in Sources */,
+				BC0374942C8B6FF500E78E59 /* EarthQuakeWidgetBundle.swift in Sources */,
+				BC0374AC2C8BB03D00E78E59 /* FeatureEntry.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC92190A2C700C6C0096F8AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,7 +383,69 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		BC03749B2C8B6FF900E78E59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC03748B2C8B6FF500E78E59 /* EarthQuakeWidgetExtension */;
+			targetProxy = BC03749A2C8B6FF900E78E59 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		BC03749E2C8B6FF900E78E59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CH2T3PYZJY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EarthQuakeWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EarthQuakeWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alphamonkey.SwiftUI-USGS-EarthQuakes.EarthQuakeWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BC03749F2C8B6FF900E78E59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CH2T3PYZJY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EarthQuakeWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EarthQuakeWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alphamonkey.SwiftUI-USGS-EarthQuakes.EarthQuakeWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		BC92191A2C700C700096F8AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -365,6 +568,7 @@
 		BC92191D2C700C700096F8AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -395,6 +599,7 @@
 		BC92191E2C700C700096F8AC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -425,6 +630,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BC0374A02C8B6FF900E78E59 /* Build configuration list for PBXNativeTarget "EarthQuakeWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC03749E2C8B6FF900E78E59 /* Debug */,
+				BC03749F2C8B6FF900E78E59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BC9219092C700C6C0096F8AC /* Build configuration list for PBXProject "SwiftUI-USGS-EarthQuakes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
