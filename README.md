@@ -9,6 +9,7 @@
   * HTTP/JSON API Integration
   * MapKit
   * Core Location
+  * WidgetKit
 
   Future enhancements may include sorting by distance and event time, as well as a map-based alternative to the list view.
 ## Project Screenshots
@@ -19,6 +20,9 @@
 ### Dark Mode
 <img src="https://github.com/user-attachments/assets/7f98b9c3-0248-49f3-86cc-cc572a470cc5" width="285px" align="center">
 <img src="https://github.com/user-attachments/assets/8386eb33-07ec-48e1-bf00-bf16651ac125"  width="285px" align="center">
+
+### Home Screen Widget
+<img src="https://github.com/user-attachments/assets/6a826f15-1c6b-4ced-aaad-f16ef0e303b8"  width="285px" align="center">
 
 ## How to Build
  Open SwiftUI-USGS-EarthQuakes.xcodeproj using XCode and click the build button.
