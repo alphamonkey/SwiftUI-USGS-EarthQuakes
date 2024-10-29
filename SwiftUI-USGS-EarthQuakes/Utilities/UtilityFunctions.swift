@@ -21,7 +21,12 @@ struct UtilityFunctions {
         dateFormatter.timeStyle = .short
         return dateFormatter
     }
-    
+    static func relativeDateString(_ date:Date) -> String {
+        var formatStyle = Date.RelativeFormatStyle()
+        formatStyle.presentation = .named
+        return date.formatted(formatStyle)
+        
+    }
     static func defaultDateString(_ date:Date) -> String {
         let dateFormatter = UtilityFunctions.defaultDateFormatter()
         return dateFormatter.string(from: date)

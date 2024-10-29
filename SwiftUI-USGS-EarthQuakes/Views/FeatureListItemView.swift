@@ -22,7 +22,7 @@ struct FeatureListItemView: View {
              {
                  Text(feature.shortPlace).font(.subheadline).bold()
                  HStack {
-                     Text(UtilityFunctions.shortDateString(feature.date)).font(.footnote).foregroundStyle(Color.secondary)
+                     Text(UtilityFunctions.relativeDateString(feature.date)).font(.footnote).foregroundStyle(Color.secondary)
                      Spacer()
                      if let location = currentLocation {
                          Text("\(Int(location.distance(from: feature.location).metersToMiles())) mi").font(.footnote).foregroundStyle(Color.secondary)
